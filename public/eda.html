@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Категория: Еда</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fbeac5;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d1e3f;
+      color: white;
+      padding: 15px 25px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #2d1e3f;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 8px;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3f2f5c;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .content {
+      padding: 40px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-bottom: 50px;
+      flex-wrap: nowrap;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+      width: 270px;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card p {
+      margin: 0;
+      padding: 15px;
+      background-color: #2d1e3f;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+
+
+    .card.static {
+  box-shadow: none;
+  cursor: default;
+  transform: none;
+  background-color: transparent; /* убираем белый фон */
+  width: auto;
+  height: auto;
+}
+
+.card.static img {
+  height: auto;
+  width: 250px; /* или больше, если нужно */
+  object-fit: contain; /* чтобы вся картинка влезала */
+}
+.card.static.left {
+  margin-right: 70px; /* отступ от десертов */
+}
+
+.card.static.right {
+  margin-left: 70px; /* отступ от напитков */
+}
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">НАЗАД</a>
+  <div class="dropdown">
+    <a href="#">КАТЕГОРИИ</a>
+    <div class="dropdown-content">
+      <a href="kino.html">Кино</a>
+      <a href="knigi.html">Книги</a>
+      <a href="otdyh.html">Отдых</a>
+      <a href="priklyucheniya.html">Приключения</a>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <!-- Первый ряд -->
+  <div class="row">
+    <div class="card" onclick="location.href='answer.html?q=Что%20поесть%20из%20первых%20блюд%3F'">
+      <img src="soup.png" alt="Первые блюда">
+      <p>ПЕРВЫЕ БЛЮДА</p>
+    </div>
+    <div class="card" onclick="location.href='answer.html?q=Что%20поесть%20из%20вторых%20блюд%3F'">
+      <img src="kofta.png" alt="Вторые блюда">
+      <p>ВТОРЫЕ БЛЮДА</p>
+    </div>
+    <div class="card" onclick="location.href='answer.html?q=Какая%20закуска%20подойдет%20сейчас%3F'">
+      <img src="kebab.png" alt="Закуски">
+      <p>ЗАКУСКИ</p>
+    </div>
+  </div>
+
+  <!-- Второй ряд с котами по бокам -->
+  <div class="row">
+  <!-- Левая картинка -->
+  <div class="card static left">
+    <img src="котик еда.png" alt="Котик">
+  </div>
+
+  <!-- ДЕСЕРТЫ -->
+  <div class="card" onclick="location.href='answer.html?q=Какой%20десерт%20предложишь%20съесть%3F'">
+    <img src="pancake.png" alt="Десерты">
+    <p>ДЕСЕРТЫ</p>
+  </div>
+
+  <!-- НАПИТКИ -->
+  <div class="card" onclick="location.href='answer.html?q=Что%20попить%20предложи%3F'">
+    <img src="drink.png" alt="Напитки">
+    <p>НАПИТКИ</p>
+  </div>
+
+  <!-- Правая картинка -->
+  <div class="card static right">
+    <img src="котик еда2.png" alt="Котик">
+  </div>
+</div>
+
+</body>
+</html>

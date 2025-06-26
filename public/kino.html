@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Категория: Кино</title>
+  <style>
+    html {
+      background-color: #fbeac5;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d1e3f;
+      color: white;
+      padding: 15px 25px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #2d1e3f;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 8px;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3f2f5c;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .side-cat {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 320px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .left-cat {
+      left: 0;
+    }
+
+    .right-cat {
+      right: 0;
+    }
+
+    .inner-bg {
+      background-color: #fff7e6;
+      margin: 25px auto;
+      padding: 10px 20px;
+      border-radius: 30px;
+      width: 50vw;
+      min-height: calc(100vh - 160px);
+      box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.15),
+        0 24px 70px rgba(0, 0, 0, 0.25);
+      border: 1px solid #e0c998;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1, h2 {
+      color: #2d1e3f;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .buttons-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      background-color: #2d1e3f;
+      color: white;
+      padding: 14px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #442a60;
+    }
+
+    .btn.selected {
+      background-color: #624488;
+    }
+
+    .genre-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      justify-items: center;
+      margin-top: 20px;
+    }
+
+    .genre-card {
+      width: 180px;
+      height: 200px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .genre-card:hover {
+      transform: scale(1.05);
+    }
+
+    .genre-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .genre-card .label {
+      background-color: #2d1e3f;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 16px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #goButton {
+      margin-top: auto;
+      margin-bottom: 20px;
+      align-self: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">НАЗАД</a>
+    <div class="dropdown">
+      <a href="#">КАТЕГОРИИ</a>
+      <div class="dropdown-content">
+        <a href="eda.html">Еда</a>
+        <a href="knigi.html">Книги</a>
+        <a href="otdyh.html">Отдых</a>
+        <a href="priklyucheniya.html">Приключения</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    
+    <img src="кот кино.png" class="side-cat left-cat" alt="Кот слева">
+
+    
+    <img src="кот кино2.png" class="side-cat right-cat" alt="Кот справа">
+
+    
+    <div class="inner-bg">
+      <h1>Выбери жанр</h1>
+      <div class="genre-grid" id="genreGrid">
+        <div class="genre-card" data-genre="комедия">
+          <img src="comedy.png" alt="Комедия">
+          <div class="label">КОМЕДИЯ</div>
+        </div>
+
+        <div class="genre-card" data-genre="боевик">
+          <img src="action-movie.png" alt="Боевик">
+          <div class="label">БОЕВИК</div>
+        </div>
+
+        <div class="genre-card" data-genre="мелодрама">
+          <img src="5393267455691979035-edited-free (carve.photos).png" alt="Мелодрама">
+          <div class="label">МЕЛОДРАМА</div>
+        </div>
+
+        <div class="genre-card" data-genre="ужасы">
+          <img src="horror-movie.png" alt="Ужасы">
+          <div class="label">УЖАСЫ</div>
+        </div>
+
+        <div class="genre-card" data-genre="фэнтези" style="grid-column: 2 / span 1;">
+          <img src="fantasy.png" alt="Фэнтези">
+          <div class="label">ФЭНТЕЗИ</div>
+        </div>
+
+        <div class="genre-card" data-genre="мультфильмы" style="grid-column: 3 / span 1;">
+          <img src="cartoon.png" alt="Мультфильмы">
+          <div class="label">МУЛЬТФИЛЬМЫ</div>
+        </div>
+      </div>
+
+      <h2>Выбери длительность</h2>
+      <div class="buttons-group" id="lengthGroup">
+        <button class="btn" data-length="до 1 часа">До 1 часа</button>
+        <button class="btn" data-length="1–2 часа">1–2 часа</button>
+        <button class="btn" data-length="многосерийный">Многосерийный</button>
+      </div>
+
+      <button class="btn" id="goButton">ПОКАЗАТЬ РЕЗУЛЬТАТ</button>
+    </div>
+
+  
+  <script>
+    let selectedGenre = null;
+    let selectedLength = null;
+  
+    
+    document.querySelectorAll('.genre-card').forEach(card => {
+      card.addEventListener('click', () => {
+        selectedGenre = card.getAttribute('data-genre');
+        document.querySelectorAll('.genre-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+      });
+    });
+  
+    
+    document.querySelectorAll('.buttons-group .btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedLength = btn.getAttribute('data-length');
+        document.querySelectorAll('.buttons-group .btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+      });
+    });
+  
+    
+    document.getElementById('goButton').addEventListener('click', () => {
+      if (!selectedGenre || !selectedLength) {
+        alert('Пожалуйста, выбери жанр и длительность.');
+        return;
+      }
+  
+      const question = `Какой фильм жанра ${selectedGenre} посмотреть, на промежуток времени/серий ${selectedLength}?`;
+      const encodedQuestion = encodeURIComponent(question);
+      window.location.href = `answer.html?q=${encodedQuestion}`;
+    });
+  </script>
+  
+  <style>
+    .selected {
+      outline: 3px solid #472c6a;
+      border-radius: 10px;
+    }
+  </style>
+  
+
+</body>
+</html>

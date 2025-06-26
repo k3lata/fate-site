@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Судьба выбрала...</title>
+  <style>
+    body {
+      background-color: #fbeac5;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #2d1e3f;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d1e3f;
+      color: white;
+      padding: 15px 25px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    #result {
+      font-size: 26px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 15px;
+      width: fit-content;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+      margin-top: 30px;
+      background-color: #2d1e3f;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #442a60;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">НАЗАД</a>
+    <div class="dropdown">
+      <a href="#">КАТЕГОРИИ</a>
+      <div class="dropdown-content">
+        <a href="eda.html">Еда</a>
+        <a href="kino.html">Кино</a>
+        <a href="knigi.html">Книги</a>
+        <a href="otdyh.html">Отдых</a>
+        <a href="priklyucheniya.html">Приключения</a>
+      </div>
+    </div>
+  </div>
+  <h1>Судьба выбрала для тебя...</h1>
+  <div id="result">Генерация...</div>
+  <button onclick="generate()">Попробовать снова</button>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type'); 
+    const genre = urlParams.get('genre');
+    const length = urlParams.get('length');
+
+    const results = {
+      movie: {
+        comedy: {
+          short: ["Короткометражка «Жена ушла – тапки остались»", "Скетч-шоу '6 кадров'"],
+          medium: ["Фильм '1+1'", "Фильм 'Брюс Всемогущий'"],
+          series: ["Сериал 'Друзья'", "Сериал 'Офис'"]
+        },
+        action: {
+          short: ["Короткометражка «Гонка»", "Мини-фильм 'Паркур'"],
+          medium: ["Фильм 'Миссия невыполнима'", "Фильм 'Джон Уик'"],
+          series: ["Сериал '24 часа'", "Сериал 'Мандалорец'"]
+        },
+        romance: {
+          short: ["Романтический короткий метр 'В метро'", "Анимация 'Письмо'"],
+          medium: ["Фильм 'Виноваты звезды'", "Фильм 'Тетрадь памяти'"],
+          series: ["Сериал 'Эмили в Париже'", "Сериал 'Бриджертоны'"]
+        }
+        
+      },
+      food: {
+        first: ["Борщ", "Куриный суп", "Уха"],
+        second: ["Плов", "Котлета с пюре", "Лазанья"],
+        drink: ["Чай с бергамотом", "Фраппучино", "Клубничный смузи"],
+        snack: ["Брускетта", "Начос", "Хумус с хлебцами"],
+        dessert: ["Наполеон", "Чизкейк", "Мороженое"]
+      }
+      
+    };
+
+    function generate() {
+      let resultText = "Ошибка: неизвестный выбор";
+
+      if (type === "movie" && genre && length) {
+        const options = results.movie[genre]?.[length];
+        if (options) resultText = options[Math.floor(Math.random() * options.length)];
+      } else if (type === "food") {
+        const category = urlParams.get('category'); 
+        const options = results.food[category];
+        if (options) resultText = options[Math.floor(Math.random() * options.length)];
+      }
+
+      document.getElementById("result").textContent = resultText;
+    }
+
+    generate();
+  </script>
+
+</body>
+</html>

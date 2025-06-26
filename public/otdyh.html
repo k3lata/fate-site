@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Категория: Отдых</title>
+  <style>
+    html {
+      background-color: #fbeac5; 
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      position: relative;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2d1e3f;
+      color: white;
+      padding: 15px 25px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #2d1e3f;
+      min-width: 160px;
+      z-index: 101;
+      border-radius: 8px;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3f2f5c;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .inner-bg {
+      background-color: #fff7e6;
+      margin: 40px auto;
+      padding: 40px 60px; 
+      border-radius: 30px;
+      width: 60vw; 
+      min-height: calc(100vh - 160px); 
+      box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.15),
+        0 24px 70px rgba(0, 0, 0, 0.25); 
+      border: 1px solid #e0c998;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      color: #2d1e3f;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .genre-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .genre-card {
+      width: 200px;
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.3s ease;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+      background-color: white;
+    }
+
+    .genre-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .label {
+      background-color: #442a60;
+      color: white;
+      padding: 12px 0;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .genre-card:hover {
+      transform: scale(1.05);
+    }
+
+    .cat-on-spa {
+      position: absolute;
+      top: 80px;
+      right: 280px;
+      height: 250px;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .cat-left-mid {
+      position: absolute;
+      left: 100px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 320px;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .cat-bottom {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 250px;
+      z-index: 10;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">НАЗАД</a>
+    <div class="dropdown">
+      <a href="#">КАТЕГОРИИ</a>
+      <div class="dropdown-content">
+        <a href="eda.html">Еда</a>
+        <a href="kino.html">Кино</a>
+        <a href="knigi.html">Книги</a>
+        <a href="priklyucheniya.html">Приключения</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-bg">
+    <h1>Выбери вид отдыха</h1>
+    <div class="genre-grid">
+      <div class="genre-card" onclick="location.href='answer.html?q=Как%20лучше%20расслабиться%20дома?'">
+        <img src="house.png" alt="Дома">
+        <div class="label">ДОМА</div>
+      </div>
+    
+      <div class="genre-card" onclick="location.href='answer.html?q=Что%20сделать%20для%20расслабления%20на%20улице?'">
+        <img src="streets.png" alt="На улице">
+        <div class="label">НА УЛИЦЕ</div>
+      </div>
+    
+      <div class="genre-card" onclick="location.href='answer.html?q=Как%20расслабиться%20на%20природе?'">
+        <img src="forest.png" alt="На природе">
+        <div class="label">НА ПРИРОДЕ</div>
+</div>
+    
+      <div class="genre-card" style="position: relative;" onclick="location.href='answer.html?q=Какие%20СПА%20или%20уходовые%20процедуры%20помогут%20расслабиться?'">
+        <img src="facial (1).png" alt="СПА / уход">
+        <div class="label">СПА / УХОД</div>
+      </div>
+    </div>
+  </div>
+  <img src="кот отзеркал.png" alt="Котик на СПА" class="cat-on-spa">
+
+  <img src="кот отзеркал2.png" alt="Котик слева" class="cat-left-mid">
+
+  <img src="кот валяшка.png" alt="Котик внизу" class="cat-bottom">
+
+</body>
+</html>
