@@ -124,7 +124,7 @@
     const question = params.get('q');
     document.getElementById('question').textContent = `Вопрос: "${question}"`;
   
-    fetch('https://fate-site.onrender.com', {
+    fetch('https://fate-site.onrender.com/ask', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
